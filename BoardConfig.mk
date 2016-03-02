@@ -195,8 +195,19 @@ BOARD_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy
 # Sensors
 USE_SENSOR_MULTI_HAL := true
 
+
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
+
+# Enable dexpreopt to speed boot time
+ifeq ($(HOST_OS),linux)
+  ifneq ($(findstring $(TARGET_BUILD_VARIANT),user userdebug),)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+    endif
+  endif
+endif
+
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
