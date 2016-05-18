@@ -150,3 +150,9 @@ persist.timed.enable=true
 
 # Wifi
 persist.data.iwlan.enable=true
+
+#enable property for hard bypass
+audio.dolby.ds2.hardbypass=true
+
+# Create zram disk
+ro.config.zram=true
