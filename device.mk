@@ -52,7 +52,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:system/etc/permissions/android.hardware.opengles.aep.xml \
     frameworks/native/data/etc/android.hardware.vr.high_performance.xml:system/etc/permissions/android.hardware.vr.high_performance.xml \
     frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:system/etc/permissions/android.hardware.vulkan.level.xml \
-    frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:system/etc/permissions/android.hardware.vulkan.version.xml
+    frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:system/etc/permissions/android.hardware.vulkan.version.xml \
+    device/oneplus/oneplus2/tfa98xx.cnt:system/etc/firmware/tfa98xx.cnt
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
@@ -105,10 +106,12 @@ PRODUCT_PACKAGES += \
     libantradio
 
 # Reduce client buffer size for fast audio output tracks
-PRODUCT_PROPERTY_OVERRIDES += af.fast_track_multiplier=1
+PRODUCT_PROPERTY_OVERRIDES += \
+    af.fast_track_multiplier=1
 
 # Low latency audio buffer size in frames
-PRODUCT_PROPERTY_OVERRIDES += audio_hal.period_size=192
+PRODUCT_PROPERTY_OVERRIDES += \
+    audio_hal.period_size=192
 
 # Camera
 PRODUCT_PACKAGES += \
