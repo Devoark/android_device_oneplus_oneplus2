@@ -58,6 +58,7 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53.a57
 
 TARGET_USES_64_BIT_BINDER := true
+TARGET_CPU_CORTEX_A53 := true
 
 # Kernel
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-3 androidboot.selinux=permissive
@@ -125,7 +126,7 @@ BOARD_USES_QCNE := true
 # Cpusets
 ENABLE_CPUSETS := true
 
-BOARD_EGL_CFG := device/qcom/$(TARGET_BOARD_PLATFORM)/egl.cfg
+BOARD_EGL_CFG := $(PLATFORM_PATH)/egl.cfg
 
 # GPS
 TARGET_NO_RPC := true
@@ -153,7 +154,6 @@ TARGET_SPECIFIC_HEADER_PATH := $(PLATFORM_PATH)/include
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_oneplus2
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
-TARGET_LIBINIT_DEFINES_FILE := $(PLATFORM_PATH)/init/init_oneplus2.cpp
 
 # Keystore
 TARGET_PROVIDES_KEYMASTER := true
@@ -188,7 +188,7 @@ BOARD_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy
 
 # Sensors
 USE_SENSOR_MULTI_HAL := true
-TARGET_USES_IMS := true
+TARGET_USES_IMS := true 
 
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
