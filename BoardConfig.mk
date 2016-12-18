@@ -249,6 +249,3 @@ TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap"
 TARGET_GESTURES_NODE := "/proc/touchpanel/gesture_enable"
 
 BOARD_WIDEVINE_OEMCRYPTO_LEVEL := 1
-
-# inherit from OnePlus common
--include device/oneplus/common/BoardConfigCommon.mk
