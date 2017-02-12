@@ -130,6 +130,7 @@ BOARD_USES_QCNE := true
 
 # Cpusets
 ENABLE_CPUSETS := true
+ENABLE_SCHED_BOOST := true
 
 # Enable real time lockscreen charging current values
 BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
