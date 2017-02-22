@@ -243,7 +243,6 @@ on boot
     write /dev/cpuset/camera-daemon/cpus 0-3
 
     start rmt_storage
-    start rfs_access
 
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/type
