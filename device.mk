@@ -105,12 +105,10 @@ PRODUCT_PACKAGES += \
     libantradio
 
 # Reduce client buffer size for fast audio output tracks
-PRODUCT_PROPERTY_OVERRIDES += \
-    af.fast_track_multiplier=1
+PRODUCT_PROPERTY_OVERRIDES += af.fast_track_multiplier=1
 
 # Low latency audio buffer size in frames
-PRODUCT_PROPERTY_OVERRIDES += \
-    audio_hal.period_size=192
+PRODUCT_PROPERTY_OVERRIDES += audio_hal.period_size=192
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -137,8 +135,7 @@ PRODUCT_PACKAGES += \
     libtinyxml
 
 # Doze mode
-PRODUCT_PACKAGES += \
-    OneplusDoze
+PRODUCT_PACKAGES += OneplusDoze
 
 #Android EGL implementation
 PRODUCT_PACKAGES += libGLES_android
@@ -150,12 +147,10 @@ PRODUCT_PACKAGES += \
     setup_fs
 
 # Fingerprint sensor
-PRODUCT_PACKAGES += \
-    fingerprintd
+PRODUCT_PACKAGES += fingerprintd
 
 # For android_filesystem_config.h
-PRODUCT_PACKAGES += \
-    fs_config_files
+PRODUCT_PACKAGES += fs_config_files
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -187,8 +182,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/synaptics.kl:system/usr/keylayout/synaptics.kl
 
 # Lights
-PRODUCT_PACKAGES += \
-    lights.msm8994
+PRODUCT_PACKAGES += lights.msm8994
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -226,8 +220,7 @@ PRODUCT_PACKAGES += \
     libstagefright_soft_flacdec
 
 # Power
-PRODUCT_PACKAGES += \
-    power.msm8994
+PRODUCT_PACKAGES += power.msm8994
 
 # QCOM
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
@@ -260,16 +253,13 @@ PRODUCT_PACKAGES += \
     sensors.msm8994 \
     sensors.ssc.wrapper
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sensors/hals.conf:system/etc/sensors/hals.conf
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/sensors/hals.conf:system/etc/sensors/hals.conf
 
 # USB
-PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory
+PRODUCT_PACKAGES += com.android.future.usb.accessory
 
 # VR
-PRODUCT_PACKAGES += \
-    vr.msm8994
+PRODUCT_PACKAGES += vr.msm8994
 
 # WiFi
 PRODUCT_PACKAGES += \
