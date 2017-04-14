@@ -427,5 +427,4 @@
     <bool name="config_buttonLightOnKeypressOnly">true</bool>
     <!-- Enable system navigation keys. -->
     <bool name="config_supportSystemNavigationKeys">true</bool>
-
 </resources>
