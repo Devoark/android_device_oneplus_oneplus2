@@ -1,5 +1,9 @@
 # system.prop for OnePlus2
 
+# Device
+ro.build.product=OnePlus2
+ro.product.device=OnePlus2
+
 # Audio
 audio_hal.period_size=192
 audio.offload.video=true
