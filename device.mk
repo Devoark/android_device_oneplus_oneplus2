@@ -116,10 +116,23 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8994 \
+    mm-qcamera-app \
     libshim_camera \
+<<<<<<< HEAD
     libshim_ims-camera \
     sensors.hal.tof \
     SnapdragonCamera
+=======
+    libmm-qcamera \
+    sensors.hal.tof
+>>>>>>> 120c778... oneplus2: HAL3
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/init.d/10opcamsanitize.sh:system/etc/init.d/10opcamsanitize.sh
+
+# Charger
+PRODUCT_PACKAGES += \
+    charger_res_images
 
 # Connectivity Engine support (CNE)
 PRODUCT_PACKAGES += \
