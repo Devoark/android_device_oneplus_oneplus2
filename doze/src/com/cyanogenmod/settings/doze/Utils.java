@@ -57,14 +57,6 @@ public final class Utils {
         }
     }
 
-    protected static void checkDozeService(Context context) {
-        if (isDozeEnabled(context) && sensorsEnabled(context)) {
-            startService(context);
-        } else {
-            stopService(context);
-        }
-    }
-
     protected static boolean isDozeEnabled(Context context) {
         return Settings.Secure.getInt(context.getContentResolver(),
                 DOZE_ENABLED, 1) != 0;
