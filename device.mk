@@ -93,22 +93,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
     $(LOCAL_PATH)/audio/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml
 
-#battery_monitor
-PRODUCT_PACKAGES += \
-    battery_monitor \
-    battery_shutdown
-
 # ANT+
 PRODUCT_PACKAGES += \
     AntHalService \
     com.dsi.ant.antradio_library \
     libantradio
-
-# Reduce client buffer size for fast audio output tracks
-PRODUCT_PROPERTY_OVERRIDES += af.fast_track_multiplier=1
-
-# Low latency audio buffer size in frames
-PRODUCT_PROPERTY_OVERRIDES += audio_hal.period_size=192
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -135,10 +124,8 @@ PRODUCT_PACKAGES += \
     libtinyxml
 
 # Doze mode
-PRODUCT_PACKAGES += OneplusDoze
-
-#Android EGL implementation
-PRODUCT_PACKAGES += libGLES_android
+PRODUCT_PACKAGES += \
+    OneplusDoze
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -147,10 +134,12 @@ PRODUCT_PACKAGES += \
     setup_fs
 
 # Fingerprint sensor
-PRODUCT_PACKAGES += fingerprintd
+PRODUCT_PACKAGES += \
+    fingerprintd
 
 # For android_filesystem_config.h
-PRODUCT_PACKAGES += fs_config_files
+PRODUCT_PACKAGES += \
+    fs_config_files
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -182,7 +171,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/synaptics.kl:system/usr/keylayout/synaptics.kl
 
 # Lights
-PRODUCT_PACKAGES += lights.msm8994
+PRODUCT_PACKAGES += \
+    lights.msm8994
+
+# LiveDisplay native
+PRODUCT_PACKAGES += \
+    libjni_livedisplay
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -220,7 +214,8 @@ PRODUCT_PACKAGES += \
     libstagefright_soft_flacdec
 
 # Power
-PRODUCT_PACKAGES += power.msm8994
+PRODUCT_PACKAGES += \
+    power.msm8994
 
 # QCOM
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
@@ -245,32 +240,36 @@ PRODUCT_PACKAGES += \
 # RIL
 PRODUCT_PACKAGES += \
     librmnetctl \
-    libxml2 \
-    libprotobuf-cpp-full
+    libxml2
+
+PRODUCT_PACKAGES += telephony-ext
+PRODUCT_BOOT_JARS += telephony-ext
 
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.msm8994 \
     sensors.ssc.wrapper
 
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/configs/sensors/hals.conf:system/etc/sensors/hals.conf
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/sensors/hals.conf:system/etc/sensors/hals.conf
 
 # USB
-PRODUCT_PACKAGES += com.android.future.usb.accessory
+PRODUCT_PACKAGES += \
+    com.android.future.usb.accessory
 
 # VR
-PRODUCT_PACKAGES += vr.msm8994
+PRODUCT_PACKAGES += \
+    vr.msm8994
 
 # WiFi
 PRODUCT_PACKAGES += \
+    ipacm \
+    ipacm-diag \
+    IPACM_cfg.xml \
     hostapd \
     libwpa_client \
     wpa_supplicant \
     wpa_supplicant.conf
-
-ifneq ($(WLAN_CHIPSET),)
-PRODUCT_PACKAGES += $(WLAN_CHIPSET)_wlan.ko
-endif
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/hostapd.accept:system/etc/hostapd/hostapd.accept \
