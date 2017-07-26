@@ -121,7 +121,6 @@ BT += libattrib_static
 BT += hcidump.sh
 BT += libbt-vendor
 BT += libbthost_if
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/qcom/common
 
 #C2DColorConvert
 C2DCC := libc2dcolorconvert
@@ -789,7 +788,7 @@ PRODUCT_PACKAGES += vcard
 PRODUCT_PACKAGES += tcmiface
 
 # healthd libaray expanded for mode charger
-PRODUCT_PACKAGES += libhealthd
+PRODUCT_PACKAGES += libhealthd.msm
 
 #intialise PRODUCT_PACKAGES_DEBUG list for debug modules
 PRODUCT_PACKAGES_DEBUG := init.qcom.testscripts.sh
@@ -830,8 +829,8 @@ PRODUCT_COPY_FILES := \
 #endif # BOARD_HAVE_BLUETOOTH_BLUEZ
 
 # gps/location secuity configuration file
-PRODUCT_COPY_FILES += \
-    device/qcom/common/sec_config:system/etc/sec_config
+#PRODUCT_COPY_FILES += \
+#    device/qcom/common/sec_config:system/etc/sec_config
 
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
