@@ -151,6 +151,11 @@ PRODUCT_PACKAGES += \
 # Fingerprint sensor
 PRODUCT_PACKAGES += \
     fingerprintd
+    
+# FM
+PRODUCT_PACKAGES += \
+    FMRadio \
+    libfmjni
 
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
