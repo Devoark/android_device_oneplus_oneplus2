@@ -19,6 +19,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from oneplus2 device
 $(call inherit-product, device/oneplus/oneplus2/device.mk)
 
+# Inherit from CAF msm8994 device
+$(call inherit-product, device/oneplus/oneplus2/base.mk)
+
 # Inherit some common AOSP stuff.
 $(call inherit-product, vendor/aosp/common.mk)
 

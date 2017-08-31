@@ -15,6 +15,7 @@
 #
 
 $(call inherit-product-if-exists, vendor/oneplus/oneplus2/oneplus2-vendor.mk)
+$(call inherit-product, device/oneplus/oneplus2/common64.mk)
 
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 TARGET_USES_MEDIA_EXTENSIONS := true
@@ -150,6 +151,11 @@ PRODUCT_PACKAGES += \
 # Fingerprint sensor
 PRODUCT_PACKAGES += \
     fingerprintd
+    
+# FM
+PRODUCT_PACKAGES += \
+    FMRadio \
+    libfmjni
 
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
@@ -259,6 +265,12 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:system/etc/sensors/hals.conf
+
+PRODUCT_PACKAGES += telephony-ext
+
+# Thermal-Engine
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/thermal-engine.conf:system/etc/thermal-engine.conf
 
 # USB
 PRODUCT_PACKAGES += \
