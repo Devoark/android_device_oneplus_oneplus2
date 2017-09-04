@@ -1,7 +1,7 @@
 # Board platforms lists to be used for
 # TARGET_BOARD_PLATFORM specific featurization
 QCOM_BOARD_PLATFORMS += msm8994
-QCOM_BOARD_PLATFORMS += msm8992
+#QCOM_BOARD_PLATFORMS += msm8992
 
 TARGET_USE_VENDOR_CAMERA_EXT := true
 #ANDROID_COMPILE_WITH_JACK := false

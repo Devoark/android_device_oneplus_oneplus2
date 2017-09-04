@@ -25,7 +25,7 @@ TARGET_OTA_ASSERT_DEVICE := OnePlus2,oneplus2
 
 PLATFORM_PATH := device/oneplus/oneplus2
 
-BOARD_VENDOR := oneplus
+BOARD_VENDOR := OnePlus
 
 # Use Snapdragon LLVM, if available
 TARGET_USE_SDCLANG := true
@@ -71,9 +71,6 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/oneplus/msm8994
 TARGET_KERNEL_CONFIG := oneplus2_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-
-# QCOM hardware
-BOARD_USES_QCOM_HARDWARE := true
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-uart"
@@ -181,6 +178,9 @@ BOARD_USES_QCOM_HARDWARE := true
 # RPC
 TARGET_NO_RPC := true
 
+# RIL
+TARGET_RIL_VARIANT := caf 
+
 BOARD_SECCOMP_POLICY := $(PLATFORM_PATH)/seccomp
 
 # Sensors
@@ -228,7 +228,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 # Recovery
 TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/rootdir/etc/fstab.qcom
 
-
+include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy
 
 # Time services
@@ -237,7 +237,7 @@ BOARD_USES_QC_TIME_SERVICES := true
 # CM Hardware
 BOARD_HARDWARE_CLASS += $(PLATFORM_PATH)/cmhw
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap"
-TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/gesture_enable"
+
 
 # inherit from the proprietary version
 -include vendor/oneplus/oneplus2/BoardConfigVendor.mk
