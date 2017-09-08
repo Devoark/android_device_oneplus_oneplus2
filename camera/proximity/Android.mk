@@ -23,7 +23,7 @@ ifneq ($(TARGET_SIMULATOR),true)
 include $(CLEAR_VARS)
 
 # LOCAL_MODULE := sensors.herring
-LOCAL_MODULE := sensors.hal.tof
+LOCAL_MODULE := sensors.hal.tof.1
 
 LOCAL_C_INCLUDES:= \
         kernel/include/linux/input/ \
