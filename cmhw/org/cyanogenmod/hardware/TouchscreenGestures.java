@@ -45,10 +45,6 @@ public class TouchscreenGestures {
         "/proc/touchpanel/draw_left_v",
         "/proc/touchpanel/draw_circle",
         "/proc/touchpanel/double_swipe",
-        "/proc/touchpanel/right_swipe",
-        "/proc/touchpanel/left_swipe",
-        "/proc/touchpanel/down_swipe",
-        "/proc/touchpanel/up_swipe"
     };
 
     // Id, name, keycode
@@ -59,10 +55,6 @@ public class TouchscreenGestures {
         new TouchscreenGesture(3, "left arrow", 253),
         new TouchscreenGesture(4, "letter o", 254),
         new TouchscreenGesture(5, "two finger down swipe", 255),
-        new TouchscreenGesture(6, "one finger right swipe", 256),
-        new TouchscreenGesture(7, "one finger left swipe", 257),
-        new TouchscreenGesture(8, "one finger down swipe", 258),
-        new TouchscreenGesture(9, "one finger up swipe", 259)
     };
 
     /**
