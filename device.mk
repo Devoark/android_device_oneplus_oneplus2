@@ -296,5 +296,4 @@ PRODUCT_COPY_FILES += \
 
 # Inherit from oppo-common
 $(call inherit-product, device/oppo/common/common.mk)
-#Call Camera-apk Mk file
-$(call inherit-product, device/oneplus/oneplus2/camera-apk/Android.mk)
+
