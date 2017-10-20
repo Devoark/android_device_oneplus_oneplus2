@@ -78,8 +78,12 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
 
-$(call inherit-product, frameworks/native/build/phone-xxxhdpi-4096-dalvik-heap.mk)
-$(call inherit-product, frameworks/native/build/phone-xxxhdpi-4096-hwui-memory.mk)
+$(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-hwui-memory.mk)
+
+# Device uses high-density artwork where available
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Haters gonna hate..
 PRODUCT_CHARACTERISTICS := nosdcard
@@ -87,8 +91,8 @@ PRODUCT_CHARACTERISTICS := nosdcard
 PRODUCT_PACKAGES += \
     audiod \
     audio.a2dp.default \
-    audio_policy.msm8994 \
-    audio.primary.msm8994 \
+    audio_policy.qcom \
+    audio.primary.qcom \
     audio.r_submix.default \
     audio.usb.default \
     libqcompostprocbundle \
@@ -122,13 +126,6 @@ PRODUCT_PACKAGES += \
     libmm-qcamera \
     sensors.hal.tof
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/init.d/10opcamsanitize.sh:system/etc/init.d/10opcamsanitize.sh
-
-# Charger
-PRODUCT_PACKAGES += \
-    charger_res_images
-
 # Connectivity Engine support (CNE)
 PRODUCT_PACKAGES += \
     cneapiclient \
@@ -138,10 +135,10 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
-    copybit.msm8994 \
-    gralloc.msm8994 \
-    hwcomposer.msm8994 \
-    memtrack.msm8994 \
+    copybit.qcom \
+    gralloc.qcom \
+    hwcomposer.qcom \
+    memtrack.qcom \
     liboverlay \
     libtinyxml
 
@@ -162,7 +159,7 @@ PRODUCT_PACKAGES += fs_config_files
 
 # GPS
 PRODUCT_PACKAGES += \
-    gps.msm8994 \
+    gps.qcom \
     flp.conf \
     gps.conf \
     izat.conf \
@@ -176,10 +173,6 @@ PRODUCT_PACKAGES += \
     ebtables \
     ethertypes
 
-# IRQ
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/msm_irqbalance.conf:system/vendor/etc/msm_irqbalance.conf
-
 # IRSC
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
@@ -190,19 +183,19 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/synaptics.kl:system/usr/keylayout/synaptics.kl
 
 # Lights
-PRODUCT_PACKAGES += lights.msm8994
+PRODUCT_PACKAGES += lights.qcom
 
 # LiveDisplay native
 PRODUCT_PACKAGES += libjni_livedisplay
 
-# Media 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
+# Media
+PRODUCT_PACKAGES += \
+    libOmxSwVencHevc \
+    libOmxVidcCommon \
+    libstagefright_soft_flacenc
 
 PRODUCT_COPY_FILES += \
-    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
+    $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
 
 # OMX
 PRODUCT_PACKAGES += \
@@ -225,7 +218,7 @@ PRODUCT_PACKAGES += \
     libstagefright_soft_flacdec
 
 # Power
-PRODUCT_PACKAGES += power.msm8994
+PRODUCT_PACKAGES += power.qcom
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -250,11 +243,8 @@ PRODUCT_PACKAGES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    sensors.msm8994
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sensors/hals.conf:system/etc/sensors/hals.conf \
-    $(LOCAL_PATH)/configs/sensors/sensor_def_qcomdev.conf:system/etc/sensors/sensor_def_qcomdev.conf
+    sensors.qcom \
+    sensors.ssc.wrapper
 
 PRODUCT_PACKAGES += tcmiface
 PRODUCT_PACKAGES += telephony-ext
@@ -264,7 +254,7 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
 # VR
-PRODUCT_PACKAGES += vr.msm8994
+PRODUCT_PACKAGES += vr.qcom
 
 # MIDI feature
 PRODUCT_COPY_FILES += \

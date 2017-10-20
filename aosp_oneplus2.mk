@@ -25,8 +25,12 @@ $(call inherit-product, device/oneplus/oneplus2/base.mk)
 # Inherit some common AOSP stuff.
 $(call inherit-product, vendor/aosp/common.mk)
 
+
 # Use AOSP camera application.
 TARGET_USES_AOSP_CAMERA := true
+
+# Inherit from QCOM common
+include device/qcom/common/common.mk
 
 PRODUCT_NAME := aosp_oneplus2
 PRODUCT_DEVICE := oneplus2
